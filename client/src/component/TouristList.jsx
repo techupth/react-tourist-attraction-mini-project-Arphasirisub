@@ -6,10 +6,10 @@ function TouristList() {
   const [searchInput, setSearchInput] = useState("");
   const [placeList, setPlaceList] = useState([]);
 
-  const getInfo = async (text) => {
+  const getInfo = async () => {
     try {
       const result = await axios.get(
-        `http://localhost:4001/trips?keywords=${text}`
+        `http://localhost:4001/trips?keywords=${searchInput}`
       );
       console.log(result);
       setPlaceList(result.data?.data || []);
@@ -19,9 +19,7 @@ function TouristList() {
   };
 
   useEffect(() => {
-    if (searchInput) {
-      getInfo(searchInput);
-    }
+    getInfo(searchInput);
   }, [searchInput]);
 
   return (
