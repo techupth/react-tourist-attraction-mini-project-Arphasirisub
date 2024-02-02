@@ -19,7 +19,7 @@ function TouristList() {
   };
 
   useEffect(() => {
-    getInfo(searchInput);
+    getInfo();
   }, [searchInput]);
 
   return (
